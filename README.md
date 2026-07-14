@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BRAID
 
-## Getting Started
+## ET AI Hackathon 2026
 
-First, run the development server:
+BRAID is an AI-powered Industrial Knowledge Intelligence platform that converts factory documents into a searchable knowledge base.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Tech Stack
+
+- Next.js 16
+- TypeScript
+- Tailwind CSS
+- Supabase
+- PostgreSQL
+- Supabase Storage
+- Google Gemini API
+
+---
+
+## Environment Variables
+
+Create a `.env.local`
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=
+
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+
+SUPABASE_SERVICE_ROLE_KEY=
+
+GEMINI_API_KEY=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database Tables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- documents
+- entities
+- flags
+- document_chunks
+- document_relations
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## APIs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Upload Document
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+POST
 
-## Deploy on Vercel
+```
+/api/documents/upload
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Uploads a PDF, analyzes it with Gemini and stores:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- document
+- entities
+- flags
+
+---
+
+### Get Documents
+
+```
+GET /api/documents
+```
+
+Returns all uploaded documents.
+
+---
+
+### Get Single Document
+
+```
+GET /api/documents/:id
+```
+
+Returns
+
+- document
+- entities
+- flags
+
+---
+
+### Equipment Search
+
+```
+GET /api/equipment
+```
+
+Optional
+
+```
+GET /api/equipment?search=Pump
+```
+
+---
+
+### Entities
+
+```
+GET /api/entities
+```
+
+---
+
+### Flags
+
+```
+GET /api/flags
+```
+
+---
+
+## Person 1 Completed
+
+- Project setup
+- Supabase integration
+- Storage
+- Gemini integration
+- AI document processing
+- Upload API
+- Documents API
+- Equipment API
+- Entities API
+- Flags API
+
+---
+
+## Remaining Work
+
+### Person 2
+
+- Embeddings
+- RAG
+- Chat API
+- Related Documents
+- Knowledge Capture
+
+### Person 3
+
+- Dashboard
+- Upload UI improvements
+- Chat UI
+- Equipment pages
+- Final styling
