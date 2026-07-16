@@ -5,7 +5,7 @@ export async function processDocument(file: File) {
 
   const base64 = Buffer.from(bytes).toString("base64");
 
-  const prompt = `
+const prompt = `
 You are an expert industrial document analyzer.
 
 Analyze this industrial document.
@@ -17,6 +17,7 @@ Format:
 {
   "doc_type": "",
   "summary": "",
+  "raw_text": "",
   "entities": [
     {
       "type": "",
@@ -32,6 +33,10 @@ Format:
     }
   ]
 }
+
+For "raw_text", extract and return the FULL plain text content of the document,
+as completely and accurately as possible — this will be used for search, so do not
+summarize or truncate it.
 `;
 
   const response = await gemini.models.generateContent({

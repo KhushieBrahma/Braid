@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
           file_url: data.publicUrl,
           doc_type: aiResult.doc_type,
           summary: aiResult.summary,
-          raw_text: null,
+          raw_text: aiResult.raw_text ?? null,
         })
         .select()
         .single();
