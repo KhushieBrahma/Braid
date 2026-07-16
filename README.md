@@ -135,6 +135,8 @@ GET /api/flags
 
 ### Person 2
 
+documentProcessor.ts prompt updated to also extract raw_text, previously hardcoded null — needed for Person 2's embeddings/chat.
+
 - Embeddings
 - RAG
 - Chat API
