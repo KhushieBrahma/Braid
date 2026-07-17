@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { processDocument } from "@/lib/services/documentProcessor";
 import { embedAndStoreDocument } from "@/lib/services/embeddingIngest";
+import { findAndStoreRelatedDocuments } from "@/lib/services/institutionalMemory";
 
 
 export async function POST(request: NextRequest) {
@@ -72,6 +73,7 @@ export async function POST(request: NextRequest) {
       throw documentError;
     }
     await embedAndStoreDocument(documentRow.id, aiResult.raw_text ?? "");
+    await findAndStoreRelatedDocuments(documentRow.id, aiResult.summary ?? "");
 
     if (aiResult.entities.length > 0) {
       const entities = aiResult.entities.map(
