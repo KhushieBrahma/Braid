@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { processDocument } from "@/lib/services/documentProcessor";
+import { embedAndStoreDocument } from "@/lib/services/embeddingIngest";
 
 
 export async function POST(request: NextRequest) {
@@ -70,6 +71,7 @@ export async function POST(request: NextRequest) {
     if (documentError) {
       throw documentError;
     }
+    await embedAndStoreDocument(documentRow.id, aiResult.raw_text ?? "");
 
     if (aiResult.entities.length > 0) {
       const entities = aiResult.entities.map(

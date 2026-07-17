@@ -70,6 +70,7 @@ export interface ChatResponse {
   citations: {
     document_id: string;
     file_name: string;
+    excerpt: string;
   }[];
 }
 
