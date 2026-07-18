@@ -40,7 +40,8 @@ summarize or truncate it.
 `;
 
   const response = await gemini.models.generateContent({
-    model: "gemini-flash-latest",
+    //model: "gemini-flash-latest",
+    model: "gemini-3.1-flash-lite",
     contents: [
       {
         inlineData: {

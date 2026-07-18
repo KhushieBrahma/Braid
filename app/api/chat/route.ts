@@ -3,7 +3,7 @@ import { supabaseAdmin } from "@/lib/supabase";
 import { gemini } from "@/lib/gemini";
 import { generateEmbedding } from "@/lib/services/embeddings";
 
-const CHAT_MODEL = "gemini-flash-latest";
+const CHAT_MODEL = "gemini-3.1-flash-lite";
 const MATCH_COUNT = 5;
 
 interface ChunkMatch {
