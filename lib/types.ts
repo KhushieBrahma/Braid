@@ -1,44 +1,35 @@
 // =========================
-// Document Types
+// Verified against the live API contract (see handoff doc section 5).
+// entity_type and doc_type are FREEFORM strings set by Gemini per
+// document — never hardcode them as a fixed enum/union.
 // =========================
 
 export interface Document {
   id: string;
   file_name: string;
-  file_url: string;
-  doc_type:
-    | "inspection_report"
-    | "maintenance_log"
-    | "manual"
-    | "sop"
-    | "other"
-    | "tacit_knowledge"
-    | null;
+  file_url: string; // "" for knowledge-capture entries, no file exists
+  doc_type: string | null;
   summary: string | null;
   raw_text: string | null;
   uploaded_at: string;
 }
 
-// =========================
-// Entity Types
-// =========================
-
 export interface Entity {
   id: string;
   document_id: string;
-  entity_type:
-    | "equipment"
-    | "person"
-    | "date"
-    | "issue"
-    | "regulation";
+  entity_type: string; // freeform: 'Equipment', 'Technician', 'Component', etc.
   entity_value: string;
   context: string | null;
 }
 
-// =========================
-// Flag Types
-// =========================
+export interface EquipmentEntity extends Entity {
+  documents: {
+    id: string;
+    file_name: string;
+    summary: string | null;
+    doc_type: string | null;
+  } | null;
+}
 
 export interface Flag {
   id: string;
@@ -49,22 +40,42 @@ export interface Flag {
   created_at: string;
 }
 
-// =========================
-// Upload Response
-// =========================
-
-export interface UploadResponse {
-  id: string;
+export interface RelatedDocument {
+  document_id: string;
   file_name: string;
   doc_type: string | null;
-  summary: string | null;
+  similarity_score: number;
 }
 
 // =========================
-// Chat Response
-// (Person 2 will use later)
+// POST /api/documents/upload response
+// NOTE: no "id" field. AI output is nested under "ai".
 // =========================
+export interface UploadResponse {
+  success: boolean;
+  fileName: string;
+  publicUrl: string;
+  ai: {
+    doc_type: string | null;
+    summary: string | null;
+    raw_text: string;
+    entities: { type: string; value: string; context: string }[];
+    flags: { type: string; description: string; severity: "low" | "medium" | "high" }[];
+  };
+}
 
+// =========================
+// GET /api/documents/:id response — nested, not flat
+// =========================
+export interface DocumentDetailResponse {
+  document: Document;
+  entities: Entity[];
+  flags: Flag[];
+}
+
+// =========================
+// POST /api/chat response — field is "citations", not "sources"
+// =========================
 export interface ChatResponse {
   answer: string;
   citations: {
@@ -74,29 +85,26 @@ export interface ChatResponse {
   }[];
 }
 
-
 // =========================
-// AI Extraction Result
+// POST /api/knowledge/capture response
 // =========================
-
-export interface AIExtractionResult {
-  document_type: string;
-  title: string;
+export interface CaptureResponse {
+  id: string;
   summary: string;
-  raw_text: string;
+  entities: { type: string; value: string; context: string }[];
+}
 
-  equipment: string[];
-
-  entities: {
-    name: string;
-    type: string;
+// =========================
+// GET /api/dashboard response (Module 4 — built by Person 3)
+// =========================
+export interface DashboardSummary {
+  total_documents: number;
+  total_flags: number;
+  total_equipment: number;
+  recent_uploads: {
+    id: string;
+    file_name: string;
+    doc_type: string | null;
+    uploaded_at: string;
   }[];
-
-  flags: {
-    type: string;
-    description: string;
-    severity: "low" | "medium" | "high";
-  }[];
-
-  keywords: string[];
 }
