@@ -4,7 +4,7 @@ import { gemini } from "@/lib/gemini";
 import { generateEmbedding } from "@/lib/services/embeddings";
 
 const CHAT_MODEL = "gemini-3.1-flash-lite";
-const MATCH_COUNT = 5;
+const MATCH_COUNT = 10;
 
 interface ChunkMatch {
   chunk_id: string;
