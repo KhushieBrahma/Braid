@@ -32,9 +32,28 @@ Built for **ET AI Hackathon 2026**, BRAID leverages Retrieval-Augmented Generati
 
 <p align="center">
 
-<img src="assets/hero.png" width="100%">
+<img src="assets/hero.jpeg" width="100%">
 
 </p>
 
 ---
 
+## ❗ Problem Statement
+
+Industrial organizations rely on thousands of documents such as maintenance manuals, SOPs, inspection reports, maintenance logs, and undocumented operator knowledge. However, this information is often scattered across disconnected systems, making it difficult for engineers to quickly retrieve critical insights.
+
+This leads to:
+- ⏳ Time-consuming manual document searches
+- 📄 Disconnected operational knowledge
+- 🧠 Loss of institutional expertise
+- ⚠️ Increased operational and compliance risks
+
+---
+
+## 💡 Our Solution
+
+BRAID transforms fragmented industrial documents into a unified AI-powered knowledge platform. Using semantic search, Retrieval-Augmented Generation (RAG), and Google Gemini, it understands documents, connects related information, and delivers trusted, citation-backed answers in seconds.
+
+Engineers can search equipment history, interact with an AI Copilot, detect operational risks, and preserve valuable tacit knowledge—all from a single platform.
+
+---
