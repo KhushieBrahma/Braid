@@ -1,152 +1,30 @@
-# BRAID
+# 🧠 BRAID
 
 ## ET AI Hackathon 2026
 
-BRAID is an AI-powered Industrial Knowledge Intelligence platform that converts factory documents into a searchable knowledge base.
+### *Documents that finally talk to each other.*
 
----
+<p align="center">
 
-## Tech Stack
+**An AI-powered Industrial Knowledge Intelligence Platform that transforms fragmented industrial documents into a searchable, connected, and explainable operational knowledge base.**
 
-- Next.js 16
-- TypeScript
-- Tailwind CSS
-- Supabase
-- PostgreSQL
-- Supabase Storage
-- Google Gemini API
+Built for **ET AI Hackathon 2026**, BRAID leverages Retrieval-Augmented Generation (RAG), Google Gemini, semantic search, and knowledge extraction to help engineers instantly retrieve trusted information, explore equipment history, detect operational risks, and preserve institutional knowledge.
 
----
+</p>
 
-## Environment Variables
+<p align="center">
 
-Create a `.env.local`
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)
 
-```env
-NEXT_PUBLIC_SUPABASE_URL=
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-SUPABASE_SERVICE_ROLE_KEY=
+![Gemini](https://img.shields.io/badge/Google-Gemini-blue?style=for-the-badge&logo=google)
 
-GEMINI_API_KEY=
-```
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
----
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql)
 
-## Database Tables
+</p>
 
-- documents
-- entities
-- flags
-- document_chunks
-- document_relations
-
----
-
-## APIs
-
-### Upload Document
-
-POST
-
-```
-/api/documents/upload
-```
-
-Uploads a PDF, analyzes it with Gemini and stores:
-
-- document
-- entities
-- flags
-
----
-
-### Get Documents
-
-```
-GET /api/documents
-```
-
-Returns all uploaded documents.
-
----
-
-### Get Single Document
-
-```
-GET /api/documents/:id
-```
-
-Returns
-
-- document
-- entities
-- flags
-
----
-
-### Equipment Search
-
-```
-GET /api/equipment
-```
-
-Optional
-
-```
-GET /api/equipment?search=Pump
-```
-
----
-
-### Entities
-
-```
-GET /api/entities
-```
-
----
-
-### Flags
-
-```
-GET /api/flags
-```
-
----
-
-## Person 1 Completed
-
-- Project setup
-- Supabase integration
-- Storage
-- Gemini integration
-- AI document processing
-- Upload API
-- Documents API
-- Equipment API
-- Entities API
-- Flags API
-
----
-
-## Remaining Work
-
-### Person 2
-
-documentProcessor.ts prompt updated to also extract raw_text, previously hardcoded null — needed for Person 2's embeddings/chat.
-
-- Embeddings
-- RAG
-- Chat API
-- Related Documents
-- Knowledge Capture
-
-### Person 3
-
-- Dashboard
-- Upload UI improvements
-- Chat UI
-- Equipment pages
-- Final styling
