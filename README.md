@@ -28,3 +28,13 @@ Built for **ET AI Hackathon 2026**, BRAID leverages Retrieval-Augmented Generati
 
 </p>
 
+---
+
+<p align="center">
+
+<img src="assets/hero.png" width="100%">
+
+</p>
+
+---
+
