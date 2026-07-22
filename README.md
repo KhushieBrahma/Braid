@@ -57,3 +57,14 @@ BRAID transforms fragmented industrial documents into a unified AI-powered knowl
 Engineers can search equipment history, interact with an AI Copilot, detect operational risks, and preserve valuable tacit knowledge—all from a single platform.
 
 ---
+
+## ✨ Key Features
+
+- 📄 **AI Document Processing** – Extracts structured information from manuals, SOPs, inspection reports, and maintenance logs.
+- 🤖 **AI Copilot** – Ask natural language questions and receive grounded answers with source citations.
+- 🔍 **Equipment Explorer** – Discover related equipment, documents, technicians, and maintenance history across all uploaded files.
+- ⚠️ **Smart Flags** – Automatically identifies compliance issues, operational risks, and overdue inspections.
+- 🧠 **Knowledge Capture** – Preserve undocumented operator expertise through text or voice input.
+- 📊 **Interactive Dashboard** – Monitor uploaded documents, tracked equipment, and active operational insights.
+
+---
